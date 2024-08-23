@@ -36,7 +36,7 @@ export default function SideNav() {
   ];
 
   return (
-    <nav className="h-screen p-5 shadow-sm border">
+    <nav className="h-screen p-5 shadow-sm border bg-white">
       <h1 className="text-3xl font-bold text-primary p-3 tracking-wide">
         ContGen
       </h1>

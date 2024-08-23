@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 // HEADER COMPONENT
 export default function Header() {
   return (
-    <section className="p-4 shadow-sm border-b-2 flex justify-between items-center">
+    <section className="p-4 shadow-sm border-b-2 flex justify-between items-center bg-white">
       <div className="flex items-center gap-2 rounded-md border p-2 w-[40%]">
         <Search />
         <input

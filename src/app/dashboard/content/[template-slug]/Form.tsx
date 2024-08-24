@@ -1,4 +1,3 @@
-"use client";
 import { TemplateProps } from "@/components/shared/Templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,33 +6,30 @@ import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-// Interface
-interface FormData {
-  [key: string]: string;
-}
-
-// FORM
-export function Form({
-  selectedTemplate,
-  userFormData,
-  loading,
-}: {
+// INTERFACE OF FORM
+interface FormProps {
   selectedTemplate: TemplateProps;
   userFormData: (formData: FormData) => void;
   loading: boolean;
-}) {
-  // Form Data
-  const [formData, setFormData] = useState<FormData>({});
+}
+
+// FORM COMPONENT
+export function Form({ selectedTemplate, userFormData, loading }: FormProps) {
+  // Form Data state
+  const [formData, setFormData] = useState<FormData>(new FormData());
 
   // On submit
   const onSubmit = (e: any) => {
     e.preventDefault();
+    // Send form data to parent
     userFormData(formData);
   };
 
   // Handle input change
   function handleInputChange(e: any) {
+    // Get input name and value
     const { name, value } = e.target;
+    // Set form data
     setFormData({ ...formData, [name]: value });
   }
 

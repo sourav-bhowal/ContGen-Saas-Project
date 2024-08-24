@@ -3,6 +3,7 @@ import { TemplateProps } from "@/components/shared/Templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -15,13 +16,15 @@ interface FormData {
 export function Form({
   selectedTemplate,
   userFormData,
+  loading,
 }: {
   selectedTemplate: TemplateProps;
   userFormData: (formData: FormData) => void;
+  loading: boolean;
 }) {
   // Form Data
   const [formData, setFormData] = useState<FormData>({});
-  
+
   // On submit
   const onSubmit = (e: any) => {
     e.preventDefault();
@@ -69,8 +72,16 @@ export function Form({
             )}
           </div>
         ))}
-        <Button type="submit" className="w-full py-7 text-lg">
-          Generate Content
+        <Button
+          type="submit"
+          className="w-full py-7 text-lg"
+          disabled={loading}
+        >
+          {loading ? (
+            <Loader2 className="animate-spin h-5 w-5" />
+          ) : (
+            "Generate Content"
+          )}
         </Button>
       </form>
     </div>

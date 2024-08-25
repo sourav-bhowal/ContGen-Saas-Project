@@ -1,8 +1,7 @@
 const templates = [
   {
     name: "Blog Title",
-    desc:
-      "An AI tool to generate blog title based on the blog information",
+    desc: "An AI tool to generate blog title based on the blog information",
     category: "Blog",
     icon: "https://cdn-icons-png.flaticon.com/128/2799/2799954.png",
     aiPrompt:
@@ -186,7 +185,6 @@ const templates = [
     desc: "An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.",
     icon: "https://cdn-icons-png.flaticon.com/128/15713/15713420.png",
     category: "blog",
-
     slug: "instagram-post-generator",
     aiPrompt:
       "Generate 3 Instagram post depends on a given keywords and give output in  in rich text editor format",
@@ -240,7 +238,6 @@ const templates = [
     desc: "AI Model to Correct your english grammer by providing the text",
     icon: "https://cdn-icons-png.flaticon.com/128/12596/12596700.png",
     category: "english",
-
     slug: "english-grammer-checker",
     aiPrompt:
       "Rewrite the inputText by correcting the grammer and give output in  in rich text editor format",
@@ -258,7 +255,6 @@ const templates = [
     desc: "AI Model to generate programming code in any language",
     icon: "https://cdn-icons-png.flaticon.com/128/6062/6062646.png",
     category: "Coding",
-
     slug: "write-code",
     aiPrompt:
       "Depends on user codeDescription write a code and give output in  in rich text editor format in code block ",
@@ -276,7 +272,6 @@ const templates = [
     desc: "AI Model to explain programming code in any language",
     icon: "https://cdn-icons-png.flaticon.com/128/8488/8488751.png",
     category: "Coding",
-
     slug: "explain-code",
     aiPrompt:
       "Depends on user codeDescription explain code line by line and give output in  in rich text editor format in code block ",
@@ -294,7 +289,6 @@ const templates = [
     desc: "This tool analyzes your input, like error messages and code snippets, to pinpoint and fix bugs, offering detailed solutions and alternatives in a straightforward, user-friendly way.",
     icon: "https://cdn-icons-png.flaticon.com/128/4426/4426267.png",
     category: "code-bug-detector",
-
     slug: "code-bug-detector",
     aiPrompt:
       "Depends on user codeInput find bug in code and give solution and give output in  in rich text editor format in code block ",
@@ -312,7 +306,6 @@ const templates = [
     desc: "Struggling to find the perfect tagline for your brand? Let our AI-tool assist you in creating a tagline that stands out.",
     icon: "https://cdn-icons-png.flaticon.com/128/2178/2178616.png",
     category: "Marketting",
-
     slug: "tagline-generator",
     aiPrompt:
       "Depends on user productName and outline generate catchy 5-10 tagline for the business product and give output  in rich text editor format ",
@@ -336,7 +329,6 @@ const templates = [
     desc: "This is your AI-powered SEO expert, creating captivating and keyword-rich e-commerce product descriptions to boost your online sales.",
     icon: "https://cdn-icons-png.flaticon.com/128/679/679922.png",
     category: "Marketting",
-
     slug: "product-description",
     aiPrompt:
       "Depends on user productName and description generate small description for product for e-commer business give output  in rich text editor format  ",

@@ -6,6 +6,8 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import { chatSession } from "@/lib/ai-model";
 import { Preview } from "./Preview";
 import { useState } from "react";
+import { SavePromptInDB } from "./actions";
+import { useUser } from "@clerk/nextjs";
 
 // INTERFACE OF CREATE CONTENT PAGE
 interface CreateContentPageProps {
@@ -21,6 +23,12 @@ export default function CreateContentPage({ params }: CreateContentPageProps) {
 
   // state for generated ai output
   const [aiGeneratedContent, setAiGeneratedContent] = useState<string>("");
+
+  // GET THE USER DATA
+  const { user } = useUser();
+
+  // take the email from the user
+  const email = user?.primaryEmailAddress?.emailAddress;
 
   // SELECT A TEMPLATE BASED ON THE URL PARAMS
   const selectedTemplate = templates.find(
@@ -43,6 +51,14 @@ export default function CreateContentPage({ params }: CreateContentPageProps) {
 
     // SET THE AI CONTENT IN THE STATE
     setAiGeneratedContent(aiResult.response?.text());
+    
+    // SAVE PROMPT IN DB
+    await SavePromptInDB({
+      userData: userData,
+      templateSlug: selectedTemplate?.slug,
+      aiResponse: aiResult.response?.text(),
+      email: email!,
+    });
 
     // SET LOADING TO FALSE
     setLoading(false);

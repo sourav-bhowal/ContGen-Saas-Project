@@ -16,7 +16,7 @@ function SearchTemplate({
           <input
             type="text"
             placeholder="Search for anything"
-            className="outline-none bg-transparent text-black"
+            className="outline-none bg-transparent text-black w-full"
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>

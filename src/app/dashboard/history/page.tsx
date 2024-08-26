@@ -2,13 +2,12 @@
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-interface myPrompts {
+export interface myPrompts {
   id: number;
   formData: string;
   aiResponse: string;
   templateSlug: string;
   createdBy: string;
-  createdAt: string;
 }
 
 export default function HistoryPage() {

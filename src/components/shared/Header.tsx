@@ -1,5 +1,7 @@
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
+import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import UsageTrack from "./UsageTrack";
 
 // HEADER COMPONENT
 export default function Header() {
@@ -13,14 +15,19 @@ export default function Header() {
           className="outline-none"
         />
       </div>
-      <div>
-        <Button
-          className="bg-primary text-white font-semibold text-lg tracking-wide"
-          size="lg"
-          variant="default"
-        >
-          Join
-        </Button>
+      <div className="flex items-center gap-2">
+        <SignedOut>
+          <Button
+            className="bg-primary text-white font-semibold text-lg tracking-wide"
+            size="lg"
+            variant="default"
+          >
+            Join
+          </Button>
+        </SignedOut>
+        <SignedIn>
+          <UserButton showName />
+        </SignedIn>
       </div>
     </section>
   );

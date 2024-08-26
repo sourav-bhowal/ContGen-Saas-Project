@@ -5,9 +5,11 @@ import { Form } from "./Form";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { chatSession } from "@/lib/ai-model";
 import { Preview } from "./Preview";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SavePromptInDB } from "./actions";
 import { useUser } from "@clerk/nextjs";
+import { TotalUsageCreditContext } from "@/context/TotalUsageCreditContext";
+import { useRouter } from "next/navigation";
 
 // INTERFACE OF CREATE CONTENT PAGE
 interface CreateContentPageProps {
@@ -18,6 +20,10 @@ interface CreateContentPageProps {
 
 // CREATE CONTENT PAGE
 export default function CreateContentPage({ params }: CreateContentPageProps) {
+  // GET THE TOTAL USAGE CREDIT
+  const { totalUsageState, setTotalUsageState } = useContext(
+    TotalUsageCreditContext
+  );
   // Loading state
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +32,9 @@ export default function CreateContentPage({ params }: CreateContentPageProps) {
 
   // GET THE USER DATA
   const { user } = useUser();
+
+  // Router
+  const router = useRouter();
 
   // take the email from the user
   const email = user?.primaryEmailAddress?.emailAddress;
@@ -37,6 +46,10 @@ export default function CreateContentPage({ params }: CreateContentPageProps) {
 
   // Generate AI content function
   async function GenerateAiContent(userData: FormData) {
+    if (totalUsageState >= 10000) {
+      router.push("/dashboard/billing");
+      return;
+    }
     // SET LOADING TO TRUE
     setLoading(true);
 
@@ -51,7 +64,7 @@ export default function CreateContentPage({ params }: CreateContentPageProps) {
 
     // SET THE AI CONTENT IN THE STATE
     setAiGeneratedContent(aiResult.response?.text());
-    
+
     // SAVE PROMPT IN DB
     await SavePromptInDB({
       userData: userData,

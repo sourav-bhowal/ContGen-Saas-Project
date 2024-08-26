@@ -1,6 +1,7 @@
 "use client";
 import { History, Home, LayoutDashboard, Settings, Wallet } from "lucide-react";
 import { usePathname } from "next/navigation";
+import UsageTrack from "./UsageTrack";
 
 export default function SideNav() {
   // GET PATHNAME OF CURRENT PAGE
@@ -8,11 +9,6 @@ export default function SideNav() {
 
   // MENU LIST
   const MenuList = [
-    {
-      name: "Home",
-      icon: Home,
-      link: "/",
-    },
     {
       name: "Dashboard",
       icon: LayoutDashboard,
@@ -36,7 +32,7 @@ export default function SideNav() {
   ];
 
   return (
-    <nav className="h-screen p-5 shadow-sm border bg-white">
+    <nav className="h-screen relative p-5 shadow-sm border bg-white">
       <h1 className="text-3xl font-bold text-primary p-3 tracking-wide">
         ContGen
       </h1>
@@ -51,6 +47,9 @@ export default function SideNav() {
             <a href={menu.link}>{menu.name}</a>
           </div>
         ))}
+      </div>
+      <div className="absolute bottom-10 w-full p-2 left-0">
+        <UsageTrack />
       </div>
     </nav>
   );

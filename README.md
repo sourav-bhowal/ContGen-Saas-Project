@@ -20,6 +20,8 @@ A next generation social media app created using NextJS.
 
 **Razorpay**
 
+**Toast Ui Editor**
+
 ## Run
 
 npm i 

@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
-import UsageTrack from "./UsageTrack";
 
 // HEADER COMPONENT
 export default function Header() {

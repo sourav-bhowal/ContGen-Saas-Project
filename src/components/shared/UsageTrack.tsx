@@ -22,17 +22,7 @@ function UsageTrack() {
     }
   }, [user]);
 
-  setInterval(() => {
-    if (user) {
-      const fetchData = async () => {
-        const data = await fetch(`/api/get-prompts`);
-        const prompts = await data.json();
-        TotalUsage(prompts);
-      };
-      fetchData();
-    }
-  }, 60000);
-
+  // TOTAL USAGE
   const TotalUsage = (data: myPrompts[]) => {
     let total = 0;
     data?.map((data) => {

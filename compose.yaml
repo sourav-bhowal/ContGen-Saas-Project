@@ -18,13 +18,9 @@ services:
         - path: .
           target: /app
           action: sync
-    environment:
-      - DATABASE_URL = postgresql://contgen-neondb_owner:uD0N6PFcRbHr@ep-little-dust-a4pjqxev.us-east-1.aws.neon.tech/contgen-neondb?sslmode=require
-      - NEXT_PUBLIC_GEMINI_API_KEY = AIzaSyBID3f-y3GMoj18qAGCrel5XNvk-yoL3Yk
-      - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_c2VsZWN0ZWQtYmlzb24tNC5jbGVyay5hY2NvdW50cy5kZXYk
-      - CLERK_SECRET_KEY=sk_test_hjXbDddtQW4CRK2Cm1VcbunNbDWd7YEuZyn5wImP83
-      - NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-      - NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    env_file:
+      - fileName: .env
+        target: /app
 
 volumes:
   content:

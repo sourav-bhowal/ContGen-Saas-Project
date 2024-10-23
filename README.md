@@ -22,6 +22,8 @@ A next generation social media app created using NextJS.
 
 **Toast Ui Editor**
 
+**Docker**
+
 ## Run
 
 npm i 

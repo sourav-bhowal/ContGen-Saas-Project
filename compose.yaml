@@ -19,8 +19,7 @@ services:
           target: /app
           action: sync
     env_file:
-      - fileName: .env
-        target: /app
+      - path: .env
 
 volumes:
   content:
